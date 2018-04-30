@@ -1,0 +1,10 @@
+{{ lynis_log_directory }}/report.txt
+{{ lynis_log_directory }}/report.dat
+{{ lynis_log_directory }}/report.log
+{
+        rotate 14
+        missingok
+        notifempty
+        compress
+        delaycompress
+}

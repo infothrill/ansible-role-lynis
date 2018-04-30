@@ -1,0 +1,42 @@
+---
+- name: "[cron] Ensure Lynis config directory {{ lynis_config_directory }} exists"
+  file:
+    path: "{{ lynis_config_directory }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0750
+
+- name: "[cron] Ensure Lynis log directory {{ lynis_log_directory }} exists"
+  file:
+    path: "{{ lynis_log_directory }}"
+    state: directory
+    owner: root
+    group: "{{ lynis_log_group }}"
+    mode: 0750
+
+- name: "[cron] Configure Lynis log rotation"
+  template:
+    src: logrotate.j2
+    dest: "{{ lynis_config_directory }}/logrotate.conf"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: "[cron] Ensure Lynis cron script exists"
+  template:
+    src: cron.sh.j2
+    dest: "{{ lynis_config_directory }}/cron.sh"
+    owner: root
+    group: root
+    mode: 0750
+
+- name: "[cron] Configure Lynis cron task"
+  cron:
+    name: Run Lynis
+    cron_file: lynis
+    minute: "{{ lynis_cron_minute }}"
+    weekday: "{{ lynis_cron_weekday }}"
+    hour: "{{ lynis_cron_hour }}"
+    user: root
+    job: "{{ lynis_config_directory }}/cron.sh"

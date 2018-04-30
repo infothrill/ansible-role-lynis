@@ -1,0 +1,6 @@
+---
+# tasks file for lynis
+
+- include: install.yml
+- include: cron.yml
+  when: lynis_cron

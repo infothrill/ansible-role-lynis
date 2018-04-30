@@ -1,0 +1,5 @@
+#!/bin/sh
+# cron script to run lynis automatically
+
+/usr/sbin/logrotate -f /etc/lynis/logrotate.conf
+cd {{ lynis_directory }} && nice ./lynis audit system --auditor "automated" --cronjob > {{ lynis_log_directory }}/report.txt && mv /var/log/lynis.log {{ lynis_log_directory }}/report.log && mv /var/log/lynis-report.dat {{ lynis_log_directory }}/report.dat && chmod 640 {{ lynis_log_directory }}/* && chgrp {{ lynis_log_group }} {{ lynis_log_directory }}/* >/dev/null 2>&1
