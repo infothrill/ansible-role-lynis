@@ -1,2 +1,2 @@
-ansible==2.5.0
-docker==2.2.1
+ansible==2.5.2 # pyup: >=2.5,<2.6
+docker==3.3.0
