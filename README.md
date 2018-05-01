@@ -1,5 +1,11 @@
 # Ansible Role: Lynis
 
+[![Build Status](https://img.shields.io/travis/infothrill/ansible-role-lynis/master.svg?label=travis_master)](https://travis-ci.org/infothrill/ansible-role-lynis)
+[![Build Status](https://img.shields.io/travis/infothrill/ansible-role-lynis/develop.svg?label=travis_develop)](https://travis-ci.org/infothrill/ansible-role-lynis)
+[![Updates](https://pyup.io/repos/github/infothrill/ansible-role-lynis/shield.svg)](https://pyup.io/repos/github/infothrill/ansible-role-lynis/)
+[![Ansible Role](https://img.shields.io/ansible/role/25378.svg)](https://galaxy.ansible.com/infothrill/lynis/)
+
+
 An [Ansible](http://www.ansible.com) role to install [Lynis](https://cisofy.com/lynis/),
 an open source security auditing tool.
 
