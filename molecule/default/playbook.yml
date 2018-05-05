@@ -2,15 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: robertdebock.bootstrap
-
-- name: Converge step 2
-  hosts: all
-  # some recent debian based docker images do not have /etc/cron.d:
-  pre_tasks:
-    - name: "Ensure cron is installed"
-      package:
-        name: cron
-        state: present
-  roles:
     - role: ansible-role-lynis

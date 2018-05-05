@@ -2,4 +2,11 @@
 - name: Prepare
   hosts: all
   gather_facts: false
-  tasks: []
+  roles:
+    - role: robertdebock.bootstrap
+  post_tasks:
+    # some recent debian based docker images do not have /etc/cron.d:
+    - name: "Ensure cron is installed"
+      package:
+        name: cron
+        state: present
