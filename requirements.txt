@@ -1,2 +1,2 @@
 ansible-lint==3.4.21
-molecule==2.14.0
+molecule==2.15.0
