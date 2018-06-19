@@ -82,6 +82,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v1.x
+
+* drop support for EOL ansible version 2.2 and 2.3
+
 ### v1.0
 
 * initial release
