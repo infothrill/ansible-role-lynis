@@ -13,18 +13,18 @@ an open source security auditing tool.
 
 requirements.yml:
 
-	- src: infothrill.lynis
-	  version: v1.0
+    - src: infothrill.lynis
+      version: v1.0
 
 Install:
 
-	ansible-galaxy install -r requirements.yml -p ./roles/
+    ansible-galaxy install -r requirements.yml -p ./roles/
 
 Playbook:
 
     - hosts: servers
         roles:
-		    - role: infothrill.lynis
+          - role: infothrill.lynis
 
 
 ## Role Variables
@@ -82,9 +82,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
-### v1.x
+### v1.1
 
 * drop support for EOL ansible version 2.2 and 2.3
+* update molecule
 
 ### v1.0
 

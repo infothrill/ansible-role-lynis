@@ -5,7 +5,7 @@ galaxy_info:
   role_name: lynis
   author: infothrill
   description: Lynis is a security auditing tool for Unix and Linux systems.
-  company:
+  company: "n/a"
   license: "MIT"
   min_ansible_version: 2.4
   platforms:
