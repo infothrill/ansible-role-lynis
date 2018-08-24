@@ -1,8 +1,8 @@
 ---
 # defaults file for lynis
 
-lynis_version: 2.6.3
-lynis_version_sha256sum: df75f39abdbcf921d949dc9b8b1348fefb2ccca27bda9089a702312b0a7c3f31
+lynis_version: 2.6.8
+lynis_version_sha256sum: 2e4c5157a4f2d9bb37d3f0f1f5bea03f92233a2a7d4df6eddf231a784087dfac
 
 lynis_directory: /opt/lynis
 
@@ -11,6 +11,10 @@ lynis_cron: true
 lynis_config_directory: /etc/lynis
 lynis_log_directory: /var/log/lynis
 lynis_log_group: adm
-lynis_cron_hour: 3
+lynis_cron_month: "*"
+lynis_cron_day: "*"
 lynis_cron_weekday: "*"
+lynis_cron_hour: 3
 lynis_cron_minute: 30
+# how many logs to keep in rotation:
+lynis_rotate: 14

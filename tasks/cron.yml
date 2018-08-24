@@ -35,8 +35,10 @@
   cron:
     name: Run Lynis
     cron_file: lynis
-    minute: "{{ lynis_cron_minute }}"
+    month: "{{ lynis_cron_month }}"
+    day: "{{ lynis_cron_day }}"
     weekday: "{{ lynis_cron_weekday }}"
     hour: "{{ lynis_cron_hour }}"
+    minute: "{{ lynis_cron_minute }}"
     user: root
     job: "{{ lynis_config_directory }}/cron.sh"

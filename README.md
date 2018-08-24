@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v1.0
+      version: v1.2.0
 
 Install:
 
@@ -30,8 +30,8 @@ Playbook:
 ## Role Variables
 
 ```yml
-lynis_version: 2.6.3
-lynis_version_sha256sum: df75f39abdbcf921d949dc9b8b1348fefb2ccca27bda9089a702312b0a7c3f31
+lynis_version: 2.6.8
+lynis_version_sha256sum: 2e4c5157a4f2d9bb37d3f0f1f5bea03f92233a2a7d4df6eddf231a784087dfac
 ```
 The version and corresponding `sha256sum` of Lynis to install. Latest version
 and hash can be found on the [Lynis download page](https://cisofy.com/download/lynis/).
@@ -60,12 +60,18 @@ The directory to store cron related scripts and configuration.
 
 ```yml
 lynis_cron: yes
-lynis_cron_hour: 3
+lynis_cron_month: "*"
+lynis_cron_day: "*"
 lynis_cron_weekday: "*"
+lynis_cron_hour: 3
 lynis_cron_minute: 30
 ```
 Lynis cron job configuration. The report, report log, and report data are all written to the `lynis_log_directory`.
 
+```yml
+lynis_rotate: 14
+```
+How many logs to keep in rotation (only meaningful when `lynis_cron` is true).
 
 ## Dependencies
 
@@ -81,6 +87,11 @@ This role was forked from https://github.com/tommarshall/ansible-role-lynis
 in 2018 by Paul Kremer.
 
 ## Changes
+
+### v1.2.0
+
+* expanded cron configuration options
+* updated to lynis default version 2.6.8
 
 ### v1.1
 

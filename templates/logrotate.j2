@@ -2,7 +2,7 @@
 {{ lynis_log_directory }}/report.dat
 {{ lynis_log_directory }}/report.log
 {
-        rotate 14
+        rotate {{ lynis_rotate|default(14) }}
         missingok
         notifempty
         compress
