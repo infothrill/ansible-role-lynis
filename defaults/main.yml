@@ -17,4 +17,7 @@ lynis_cron_weekday: "*"
 lynis_cron_hour: 3
 lynis_cron_minute: 30
 # how many logs to keep in rotation:
-lynis_rotate: 14
+lynis_cron_rotate: 14
+# set this to true if the cron job automation should be triggered
+# after initial installation or version change
+lynis_cron_initial_run: false

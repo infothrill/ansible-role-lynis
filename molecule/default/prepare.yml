@@ -3,9 +3,11 @@
   hosts: all
   gather_facts: false
   roles:
-    - role: robertdebock.bootstrap
+    - {role: robertdebock.bootstrap, bootstrap_preview: false}
   post_tasks:
-    # some recent debian based docker images do not have /etc/cron.d:
+    # Some recent debian based docker images do not have /etc/cron.d .
+    # For the purpose of this test, we assume the target environment
+    # has cron, thus we install it:
     - name: "Ensure cron is installed"
       package:
         name: cron

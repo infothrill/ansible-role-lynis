@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v1.2.0
+      version: v2.0.0
 
 Install:
 
@@ -44,7 +44,7 @@ The directory to hold the Lynis installation.
 ```yml
 lynis_log_directory: /var/log/lynis
 ```
-The directory for the Lynis logs. Used by the cron job. By default Lynis will
+The directory for the Lynis logs. Used by the cron job. By default, Lynis will
 output the report to `stdout` and log to `/var/log/lynis.log` and
 `/var/log/lynis-report.dat`.
 
@@ -66,12 +66,19 @@ lynis_cron_weekday: "*"
 lynis_cron_hour: 3
 lynis_cron_minute: 30
 ```
-Lynis cron job configuration. The report, report log, and report data are all written to the `lynis_log_directory`.
+Lynis cron job configuration. The report, report log, and report data are
+all written to the `lynis_log_directory`.
 
 ```yml
-lynis_rotate: 14
+lynis_cron_rotate: 14
 ```
 How many logs to keep in rotation (only meaningful when `lynis_cron` is true).
+
+```yml
+lynis_cron_initial_run: false
+```
+Set this to true to trigger an initial cron job run after initial
+installation or version change of lynis.
 
 ## Dependencies
 
@@ -88,15 +95,21 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v2.0.0
+
+* added feature to run lynis on initial install or version change (`lynis_cron_initial_run`)
+* renamed variable `lynis_rotate` to `lynis_cron_rotate`
+* removed molecule playbooks that are just upstream copies
+
 ### v1.2.0
 
 * expanded cron configuration options
-* updated to lynis default version 2.6.8
+* updated lynis default version to 2.6.8
 
 ### v1.1
 
 * drop support for EOL ansible version 2.2 and 2.3
-* update molecule
+* upgrade molecule
 
 ### v1.0
 

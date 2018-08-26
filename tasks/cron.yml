@@ -42,3 +42,9 @@
     minute: "{{ lynis_cron_minute }}"
     user: root
     job: "{{ lynis_config_directory }}/cron.sh"
+
+- name: "[cron] initial audit run"
+  command: "{{ lynis_config_directory }}/cron.sh"
+  args:
+    chdir: /
+  when: lynis_cron_initial_run and ( _lynis_installed_version.stdout != lynis_version )
