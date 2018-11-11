@@ -1,2 +1,4 @@
 ansible-lint==3.5.1
 molecule==2.19.0
+# needed in this case because we run tests with docker containers:
+docker==3.5.1
