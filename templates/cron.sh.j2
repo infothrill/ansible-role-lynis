@@ -1,5 +1,13 @@
 #!/bin/sh
 # cron script to run lynis automatically
 
+{# only run logrotate if we actually have to keep a history #}
+{% if lynis_cron_rotate|default(1)|int > 1 %}
 /usr/sbin/logrotate -f /etc/lynis/logrotate.conf
+{% else %}
+{# if we don't want rotation, we should also ensure we have no rotated files flying around #}
+rm -f {{ lynis_log_directory }}/report.log.*
+rm -f {{ lynis_log_directory }}/report.dat.*
+rm -f {{ lynis_log_directory }}/report.txt.*
+{% endif %}
 cd {{ lynis_directory }} && nice ./lynis audit system --auditor "automated" --cronjob > {{ lynis_log_directory }}/report.txt && mv /var/log/lynis.log {{ lynis_log_directory }}/report.log && mv /var/log/lynis-report.dat {{ lynis_log_directory }}/report.dat && chmod 640 {{ lynis_log_directory }}/* && chgrp {{ lynis_log_group }} {{ lynis_log_directory }}/* >/dev/null 2>&1

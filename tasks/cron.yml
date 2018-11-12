@@ -22,6 +22,7 @@
     owner: root
     group: root
     mode: 0644
+  when: lynis_cron_rotate|int > 1
 
 - name: "[cron] Ensure Lynis cron script exists"
   template:

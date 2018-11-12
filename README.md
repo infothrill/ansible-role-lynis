@@ -95,6 +95,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v2.1.0
+
+* only run log rotation when actually configured (`lynis_cron_rotate` > 1)
+
 ### v2.0.0
 
 * added feature to run lynis on initial install or version change (`lynis_cron_initial_run`)
