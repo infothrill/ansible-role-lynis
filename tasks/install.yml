@@ -15,21 +15,23 @@
 
 - block:
     - name: "[install] make temporary directory for installation"
-      command: mktemp -d
+      tempfile:
+        state: directory
+        suffix: lynis
       register: _temp
       changed_when: true
 
     - name: "[install] Download Lynis {{ lynis_version }}"
       get_url:
         url: "https://cisofy.com/files/lynis-{{ lynis_version }}.tar.gz"
-        dest: "{{ _temp.stdout }}/lynis-{{ lynis_version }}.tar.gz"
+        dest: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
         sha256sum: "{{ lynis_version_sha256sum }}"
 
     - name: "[install] Extract Lynis tarball"
       unarchive:
-        src: "{{ _temp.stdout }}/lynis-{{ lynis_version }}.tar.gz"
-        dest: "{{ _temp.stdout }}"
-        creates: "{{ _temp.stdout }}/lynis"
+        src: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
+        dest: "{{ _temp.path }}"
+        creates: "{{ _temp.path }}/lynis"
         copy: false
         owner: root
         group: root
@@ -37,17 +39,17 @@
     - name: "[install] create .version file"
       copy:
         content: "{{ lynis_version }}"
-        dest: "{{ _temp.stdout }}/lynis/.version"
+        dest: "{{ _temp.path }}/lynis/.version"
         owner: root
         group: root
         mode: 0644
 
     - name: "[install] copy Lynis into place"
-      command: cp -rT {{ _temp.stdout }}/lynis {{ lynis_directory }}
+      command: cp -rT {{ _temp.path }}/lynis {{ lynis_directory }}
 
     - name: "[install] delete temporary directory"
       file:
         state: absent
-        path: "{{ _temp.stdout }}"
+        path: "{{ _temp.path }}"
 
   when: _lynis_installed_version.stdout != lynis_version
