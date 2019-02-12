@@ -95,6 +95,11 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v2.1.1
+
+* use ansible tempfile module
+* use `ionice` in cronjob
+
 ### v2.1.0
 
 * only run log rotation when actually configured (`lynis_cron_rotate` > 1)
