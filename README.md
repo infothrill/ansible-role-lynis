@@ -95,6 +95,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v2.1.x
+
+* add test support for ansible 2.8
+
 ### v2.1.1
 
 * use ansible tempfile module
