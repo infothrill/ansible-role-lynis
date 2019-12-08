@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v2.0.0
+      version: v3.0.0
 
 Install:
 
@@ -95,9 +95,14 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
-### v2.1.x
+### v3.0.0
 
-* add test support for ansible 2.8
+* add support for ansible 2.8
+* add support for ansible 2.9
+* drop support for ansible 2.4
+* drop support for python2
+* drop support for Ubuntu 14.04
+* upgraded ansible-lint
 
 ### v2.1.1
 
