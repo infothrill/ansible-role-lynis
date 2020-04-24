@@ -98,6 +98,7 @@ in 2018 by Paul Kremer.
 ### v3.0.1
 
 * add support for ubuntu 20.04 (focal)
+* updated lynis default version to 2.7.5
 
 ### v3.0.0
 
