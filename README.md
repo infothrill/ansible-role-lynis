@@ -95,6 +95,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v3.0.1
+
+* add support for ubuntu 20.04 (focal)
+
 ### v3.0.0
 
 * add support for ansible 2.8
