@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v3.0.0
+      version: v3.0.1
 
 Install:
 
