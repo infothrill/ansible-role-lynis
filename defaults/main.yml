@@ -14,8 +14,8 @@ lynis_log_group: adm
 lynis_cron_month: "*"
 lynis_cron_day: "*"
 lynis_cron_weekday: "*"
-lynis_cron_hour: 3
-lynis_cron_minute: 30
+lynis_cron_hour: "3"
+lynis_cron_minute: "30"
 # how many logs to keep in rotation:
 lynis_cron_rotate: 14
 # set this to true if the cron job automation should be triggered
