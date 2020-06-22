@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v3.0.1
+      version: v3.0.2
 
 Install:
 
@@ -30,11 +30,11 @@ Playbook:
 ## Role Variables
 
 ```yml
-lynis_version: 2.7.5
-lynis_version_sha256sum: 3d27ade73a5c1248925ad9c060024940ce5d2029f40aaa901f43314888fe324d
+lynis_version: 3.0.0
+lynis_version_sha256sum: 3cc165f9007ba41de6d0b693a1167dbaf0179085f9506dcba64b4b8e37e1bda2
 ```
 The version and corresponding `sha256sum` of Lynis to install. Latest version
-and hash can be found on the [Lynis download page](https://cisofy.com/download/lynis/).
+and hash can be found on the [Lynis download page](https://cisofy.com/downloads/lynis/).
 
 ```yml
 lynis_directory: /opt/lynis
@@ -94,6 +94,10 @@ This role was forked from https://github.com/tommarshall/ansible-role-lynis
 in 2018 by Paul Kremer.
 
 ## Changes
+
+### v3.0.2
+
+* updated lynis default version to 3.0.0
 
 ### v3.0.1
 
