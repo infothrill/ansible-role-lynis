@@ -35,6 +35,7 @@
         copy: false
         owner: root
         group: root
+        mode: '750'
 
     - name: "[install] create .version file"
       copy:
