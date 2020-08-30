@@ -26,6 +26,7 @@
         url: "https://cisofy.com/files/lynis-{{ lynis_version }}.tar.gz"
         dest: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
         sha256sum: "{{ lynis_version_sha256sum }}"
+        mode: '640'
 
     - name: "[install] Extract Lynis tarball"
       unarchive:
