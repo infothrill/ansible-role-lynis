@@ -14,7 +14,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v3.0.2
+      version: v4.0.0
 
 Install:
 
@@ -94,6 +94,10 @@ This role was forked from https://github.com/tommarshall/ansible-role-lynis
 in 2018 by Paul Kremer.
 
 ## Changes
+
+### v4.0.0
+
+* Drop support for ansible <=2.7
 
 ### v3.0.2
 
