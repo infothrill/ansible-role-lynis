@@ -95,6 +95,11 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### vxx
+
+* Add support for ansible 2.10
+* Upgrade molecule to 3.x
+
 ### v4.0.0
 
 * Drop support for ansible <=2.7
