@@ -97,6 +97,7 @@ in 2018 by Paul Kremer.
 
 ### v4.x
 
+* fix for issue [#55](https://github.com/infothrill/ansible-role-lynis/issues/55)
 * updated lynis default version to 3.0.1
 
 ### v4.0.0

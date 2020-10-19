@@ -29,14 +29,13 @@
         mode: '640'
 
     - name: "[install] Extract Lynis tarball"
-      unarchive:
+      unarchive:  # noqa 208 (see also https://github.com/infothrill/ansible-role-lynis/issues/55)
         src: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
         dest: "{{ _temp.path }}"
         creates: "{{ _temp.path }}/lynis"
         copy: false
         owner: root
         group: root
-        mode: '750'
 
     - name: "[install] create .version file"
       copy:

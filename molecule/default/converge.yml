@@ -1,5 +1,7 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    lynis_cron_initial_run: true
   roles:
     - role: ansible-role-lynis
