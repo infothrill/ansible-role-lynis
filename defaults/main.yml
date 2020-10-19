@@ -1,8 +1,8 @@
 ---
 # defaults file for lynis
 
-lynis_version: 3.0.0
-lynis_version_sha256sum: 3cc165f9007ba41de6d0b693a1167dbaf0179085f9506dcba64b4b8e37e1bda2
+lynis_version: 3.0.1
+lynis_version_sha256sum: 8381b62e11a5e0ead417bcfd92845adab7dc3b9d06271c852a1166cb65a61aff
 
 lynis_directory: /opt/lynis
 
