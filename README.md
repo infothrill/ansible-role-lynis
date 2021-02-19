@@ -95,6 +95,11 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v4.1.1
+
+* drop python 3.6 test support
+* add python 3.7, 3.8, 3.9 test support
+
 ### v4.1.0
 
 * fix for issue [#55](https://github.com/infothrill/ansible-role-lynis/issues/55)
