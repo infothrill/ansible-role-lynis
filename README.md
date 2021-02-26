@@ -99,6 +99,8 @@ in 2018 by Paul Kremer.
 
 * drop python 3.6 test support
 * add python 3.7, 3.8, 3.9 test support
+* drop ansible 2.8 support
+* add ansible 3.0 support
 
 ### v4.1.0
 
