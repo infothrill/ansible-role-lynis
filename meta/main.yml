@@ -3,6 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: lynis
+  namespace: infothrill
   author: infothrill
   description: Lynis is a security auditing tool for Unix and Linux systems.
   company: "n/a"
