@@ -1,13 +1,12 @@
 ---
 dependency:
   name: galaxy
-  options:
-    role-file: requirements.yml
+  enabled: false
 driver:
   name: docker
 lint: |
   yamllint .
-  ansible-lint
+  ansible-lint --exclude molecule  --offline
 platforms:
   - name: lynis-ubuntu-1604
     image: ubuntu:16.04
@@ -17,8 +16,6 @@ platforms:
     image: ubuntu:20.04
   - name: lynis-debian-stretch
     image: debian:stretch
-  - name: lynis-debian-jessie
-    image: debian:jessie
   - name: lynis-debian-buster
     image: debian:buster
 provisioner:

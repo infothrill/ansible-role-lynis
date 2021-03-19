@@ -17,7 +17,6 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
-        - jessie
         - buster
   galaxy_tags:
     - security

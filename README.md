@@ -95,6 +95,10 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### v4.1.x
+
+* dropped testing support for Debian Jessie
+
 ### v4.1.1
 
 * updated lynis default version to 3.0.3
