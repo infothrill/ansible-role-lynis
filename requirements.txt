@@ -2,5 +2,5 @@ ansible-lint==5.0.12
 molecule==3.3.4
 molecule-docker==0.3.3
 docker==5.0.0
-pytest-testinfra>=6.0.0
-yamllint>=1.26.0
+pytest-testinfra==6.4.0
+yamllint==1.26.1
