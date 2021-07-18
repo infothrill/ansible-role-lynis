@@ -1,8 +1,6 @@
 # Ansible Role: Lynis
 
-[![Build Status](https://img.shields.io/travis/infothrill/ansible-role-lynis/master.svg?label=travis_master)](https://travis-ci.org/infothrill/ansible-role-lynis)
-[![Build Status](https://img.shields.io/travis/infothrill/ansible-role-lynis/develop.svg?label=travis_develop)](https://travis-ci.org/infothrill/ansible-role-lynis)
-[![Updates](https://pyup.io/repos/github/infothrill/ansible-role-lynis/shield.svg)](https://pyup.io/repos/github/infothrill/ansible-role-lynis/)
+![Build status](https://github.com/infothrill/ansible-role-lynis/actions/workflows/tests.yml/badge.svg)
 [![Ansible Role](https://img.shields.io/ansible/role/25378.svg)](https://galaxy.ansible.com/infothrill/lynis/)
 
 
@@ -98,6 +96,9 @@ in 2018 by Paul Kremer.
 ### v4.1.x
 
 * dropped testing support for Debian Jessie
+* dropped support for python < 3.8
+* dropped support for ansible <= 2.10
+* Switch to Github Actions for CI
 
 ### v4.1.1
 
