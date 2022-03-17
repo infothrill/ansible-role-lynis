@@ -18,6 +18,8 @@ platforms:
     image: debian:stretch
   - name: lynis-debian-buster
     image: debian:buster
+  - name: lynis-debian-11-bullseye
+    image: debian:bullseye
 provisioner:
   name: ansible
 scenario:
