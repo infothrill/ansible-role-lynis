@@ -46,7 +46,7 @@
         mode: 0644
 
     - name: "[install] copy Lynis into place"
-      command: cp -rT {{ _temp.path }}/lynis {{ lynis_directory }}
+      command: cp -rT {{ _temp.path }}/lynis {{ lynis_directory }}  # noqa no-changed-when
 
     - name: "[install] delete temporary directory"
       file:
