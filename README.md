@@ -93,6 +93,7 @@ in 2018 by Paul Kremer.
 
 ### v4.2.0
 
+* updated lynis default version to 3.0.8
 * dropped testing support for Debian Jessie, added Ubuntu 22.04
 * dropped support for python older than 3.8
 * dropped support for ansible older than 5
