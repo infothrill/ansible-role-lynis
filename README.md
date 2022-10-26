@@ -11,7 +11,7 @@ an open source security auditing tool.
 requirements.yml:
 
     - src: infothrill.lynis
-      version: v4.1.0
+      version: v4.2.0
 
 Install:
 
@@ -26,8 +26,8 @@ Playbook:
 ## Role Variables
 
     ```yml
-    lynis_version: 3.0.1
-    lynis_version_sha256sum: 8381b62e11a5e0ead417bcfd92845adab7dc3b9d06271c852a1166cb65a61aff
+    lynis_version: 3.0.8
+    lynis_version_sha256sum: 98373a4cc9d0471ab9bebb249e442fcf94b6bf6d4e9c6fc0b22bca1506646c63
     ```
 The version and corresponding `sha256sum` of Lynis to install. Latest version
 and hash can be found on the [Lynis download page](https://cisofy.com/downloads/lynis/).
