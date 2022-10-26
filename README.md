@@ -3,7 +3,6 @@
 ![Build status](https://github.com/infothrill/ansible-role-lynis/actions/workflows/tests.yml/badge.svg)
 [![Ansible Role](https://img.shields.io/ansible/role/25378.svg)](https://galaxy.ansible.com/infothrill/lynis/)
 
-
 An [Ansible](http://www.ansible.com) role to install [Lynis](https://cisofy.com/lynis/),
 an open source security auditing tool.
 
@@ -24,57 +23,56 @@ Playbook:
         roles:
           - role: infothrill.lynis
 
-
 ## Role Variables
 
-```yml
-lynis_version: 3.0.1
-lynis_version_sha256sum: 8381b62e11a5e0ead417bcfd92845adab7dc3b9d06271c852a1166cb65a61aff
-```
+    ```yml
+    lynis_version: 3.0.1
+    lynis_version_sha256sum: 8381b62e11a5e0ead417bcfd92845adab7dc3b9d06271c852a1166cb65a61aff
+    ```
 The version and corresponding `sha256sum` of Lynis to install. Latest version
 and hash can be found on the [Lynis download page](https://cisofy.com/downloads/lynis/).
 
-```yml
-lynis_directory: /opt/lynis
-```
+    ```yml
+    lynis_directory: /opt/lynis
+    ```
 The directory to hold the Lynis installation.
 
-```yml
-lynis_log_directory: /var/log/lynis
-```
+    ```yml
+    lynis_log_directory: /var/log/lynis
+    ```
 The directory for the Lynis logs. Used by the cron job. By default, Lynis will
 output the report to `stdout` and log to `/var/log/lynis.log` and
 `/var/log/lynis-report.dat`.
 
-```yml
-lynis_log_group: adm
-```
+    ```yml
+    lynis_log_group: adm
+    ```
 The unix group that should own the generated logs.
 
-```yml
-lynis_config_directory: /etc/lynis
-```
+    ```yml
+    lynis_config_directory: /etc/lynis
+    ```
 The directory to store cron related scripts and configuration.
 
-```yml
-lynis_cron: yes
-lynis_cron_month: "*"
-lynis_cron_day: "*"
-lynis_cron_weekday: "*"
-lynis_cron_hour: 3
-lynis_cron_minute: 30
-```
+    ```yml
+    lynis_cron: yes
+    lynis_cron_month: "*"
+    lynis_cron_day: "*"
+    lynis_cron_weekday: "*"
+    lynis_cron_hour: 3
+    lynis_cron_minute: 30
+    ```
 Lynis cron job configuration. The report, report log, and report data are
 all written to the `lynis_log_directory`.
 
-```yml
-lynis_cron_rotate: 14
-```
+    ```yml
+    lynis_cron_rotate: 14
+    ```
 How many logs to keep in rotation (only meaningful when `lynis_cron` is true).
 
-```yml
-lynis_cron_initial_run: false
-```
+    ```yml
+    lynis_cron_initial_run: false
+    ```
 Set this to true to trigger an initial cron job run after initial
 installation or version change of lynis.
 
@@ -93,11 +91,12 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
-### v4.1.x
+### v4.2.0
 
-* dropped testing support for Debian Jessie
-* dropped support for python < 3.8
-* dropped support for ansible <= 2.10
+* dropped testing support for Debian Jessie, added Ubuntu 22.04
+* dropped support for python older than 3.8
+* dropped support for ansible older than 5
+* Applied modern linting
 * Switch to Github Actions for CI
 
 ### v4.1.1

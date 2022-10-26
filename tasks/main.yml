@@ -1,6 +1,8 @@
 ---
 # tasks file for lynis
 
-- include: install.yml
-- include: cron.yml
+- name: "Install lynis"
+  ansible.builtin.include_tasks: install.yml
+- name: "Configure cron"
+  ansible.builtin.include_tasks: cron.yml
   when: lynis_cron

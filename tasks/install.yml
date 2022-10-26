@@ -1,6 +1,6 @@
 ---
-- name: "[install] Prepare Lynis directory {{ lynis_directory }}"
-  file:
+- name: "Prepare Lynis directory {{ lynis_directory }}"
+  ansible.builtin.file:
     state: directory
     path: "{{ lynis_directory }}"
     owner: root
@@ -8,28 +8,30 @@
     mode: 0755
 
 
-- name: "[install] check installed version"
-  shell: "cat {{ lynis_directory }}/.version || echo ''"
+- name: "Check installed version"
+  ansible.builtin.shell: "cat {{ lynis_directory }}/.version || echo ''"
   changed_when: false
   register: _lynis_installed_version
 
-- block:
-    - name: "[install] make temporary directory for installation"
-      tempfile:
+- name: "Install lynis"
+  when: _lynis_installed_version.stdout != lynis_version
+  block:
+    - name: "Make temporary directory for installation"
+      ansible.builtin.tempfile:
         state: directory
         suffix: lynis
       register: _temp
       changed_when: true
 
-    - name: "[install] Download Lynis {{ lynis_version }}"
-      get_url:
+    - name: "Download Lynis {{ lynis_version }}"
+      ansible.builtin.get_url:
         url: "https://cisofy.com/files/lynis-{{ lynis_version }}.tar.gz"
         dest: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
         sha256sum: "{{ lynis_version_sha256sum }}"
         mode: '640'
 
-    - name: "[install] Extract Lynis tarball"
-      unarchive:  # noqa 208 (see also https://github.com/infothrill/ansible-role-lynis/issues/55)
+    - name: "Extract Lynis tarball"
+      ansible.builtin.unarchive:  # noqa 208 (see also https://github.com/infothrill/ansible-role-lynis/issues/55)
         src: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
         dest: "{{ _temp.path }}"
         creates: "{{ _temp.path }}/lynis"
@@ -37,20 +39,18 @@
         owner: root
         group: root
 
-    - name: "[install] create .version file"
-      copy:
+    - name: "Create .version file"
+      ansible.builtin.copy:
         content: "{{ lynis_version }}"
         dest: "{{ _temp.path }}/lynis/.version"
         owner: root
         group: root
         mode: 0644
 
-    - name: "[install] copy Lynis into place"
-      command: cp -rT {{ _temp.path }}/lynis {{ lynis_directory }}  # noqa no-changed-when
+    - name: "Copy Lynis into place"
+      ansible.builtin.command: cp -rT {{ _temp.path }}/lynis {{ lynis_directory }}  # noqa no-changed-when
 
-    - name: "[install] delete temporary directory"
-      file:
+    - name: "Delete temporary directory"
+      ansible.builtin.file:
         state: absent
         path: "{{ _temp.path }}"
-
-  when: _lynis_installed_version.stdout != lynis_version

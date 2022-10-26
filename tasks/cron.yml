@@ -1,22 +1,22 @@
 ---
-- name: "[cron] Ensure Lynis config directory {{ lynis_config_directory }} exists"
-  file:
+- name: "Ensure Lynis config directory exists at {{ lynis_config_directory }}"
+  ansible.builtin.file:
     path: "{{ lynis_config_directory }}"
     state: directory
     owner: root
     group: root
     mode: 0750
 
-- name: "[cron] Ensure Lynis log directory {{ lynis_log_directory }} exists"
-  file:
+- name: "Ensure Lynis log directory exists at {{ lynis_log_directory }}"
+  ansible.builtin.file:
     path: "{{ lynis_log_directory }}"
     state: directory
     owner: root
     group: "{{ lynis_log_group }}"
     mode: 0750
 
-- name: "[cron] Configure Lynis log rotation"
-  template:
+- name: "Configure Lynis log rotation"
+  ansible.builtin.template:
     src: logrotate.j2
     dest: "{{ lynis_config_directory }}/logrotate.conf"
     owner: root
@@ -24,16 +24,16 @@
     mode: 0644
   when: lynis_cron_rotate|int > 1
 
-- name: "[cron] Ensure Lynis cron script exists"
-  template:
+- name: "Ensure Lynis cron script exists"
+  ansible.builtin.template:
     src: cron.sh.j2
     dest: "{{ lynis_config_directory }}/cron.sh"
     owner: root
     group: root
     mode: 0750
 
-- name: "[cron] Configure Lynis cron task"
-  cron:
+- name: "Configure Lynis cron task"
+  ansible.builtin.cron:
     name: Run Lynis
     cron_file: lynis
     month: "{{ lynis_cron_month }}"
@@ -44,8 +44,8 @@
     user: root
     job: "{{ lynis_config_directory }}/cron.sh"
 
-- name: "[cron] initial audit run"
-  command: "{{ lynis_config_directory }}/cron.sh"
+- name: "Initial audit run"
+  ansible.builtin.command: "{{ lynis_config_directory }}/cron.sh"
   args:
     chdir: /
   when: lynis_cron_initial_run and ( _lynis_installed_version.stdout != lynis_version )
