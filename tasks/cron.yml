@@ -49,3 +49,4 @@
   args:
     chdir: /
   when: lynis_cron_initial_run and ( _lynis_installed_version.stdout != lynis_version )
+  changed_when: false
