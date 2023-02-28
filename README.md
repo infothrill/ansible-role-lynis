@@ -91,6 +91,11 @@ in 2018 by Paul Kremer.
 
 ## Changes
 
+### vxx
+
+* add ansible 7, python 3.11
+* drop ansible 5, python 3.8
+
 ### v4.2.0
 
 * updated lynis default version to 3.0.8
