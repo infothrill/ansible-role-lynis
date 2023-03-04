@@ -27,7 +27,7 @@
       ansible.builtin.get_url:
         url: "https://cisofy.com/files/lynis-{{ lynis_version }}.tar.gz"
         dest: "{{ _temp.path }}/lynis-{{ lynis_version }}.tar.gz"
-        checksum: "sha256{{ lynis_version_sha256sum }}"
+        checksum: "sha256:{{ lynis_version_sha256sum }}"
         mode: '640'
 
     - name: "Extract Lynis tarball"
