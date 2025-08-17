@@ -1,7 +1,7 @@
 # Ansible Role: Lynis
 
 ![Build status](https://github.com/infothrill/ansible-role-lynis/actions/workflows/tests.yml/badge.svg)
-[![Ansible Role](https://img.shields.io/ansible/role/25378.svg)](https://galaxy.ansible.com/infothrill/lynis/)
+[![Ansible Role](https://img.shields.io/ansible/role/d/infothrill/lynis)](https://galaxy.ansible.com/infothrill/lynis/)
 
 An [Ansible](http://www.ansible.com) role to install [Lynis](https://cisofy.com/lynis/),
 an open source security auditing tool.
