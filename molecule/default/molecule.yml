@@ -8,16 +8,12 @@ lint: |
   yamllint .
   ansible-lint --exclude molecule  --offline
 platforms:
-  - name: lynis-ubuntu-1804
-    image: ubuntu:18.04
-  - name: lynis-ubuntu-2004
-    image: ubuntu:20.04
   - name: lynis-ubuntu-2204
     image: ubuntu:22.04
-  - name: lynis-debian-buster
-    image: debian:buster
-  - name: lynis-debian-11-bullseye
-    image: debian:bullseye
+  - name: lynis-ubuntu-2404
+    image: ubuntu:24.04
+  - name: lynis-debian-12-bookworm
+    image: debian:bookworm
 provisioner:
   name: ansible
 scenario:

@@ -12,10 +12,10 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", '3.11']
-        ansible-version: ['6', '7']
+        ansible-version: ['9', '10']
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@v5
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
